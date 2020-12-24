@@ -60,15 +60,9 @@ export default {
         }).catch(e => console.log(e))         
       }      
     },
-      closeApp(event) {
-    event.preventDefault();
-    liff.sendMessages([{
-      type: 'text',
-      text: "Thank you, Bye!"
-    }]).then(() => {
+     close(){
       liff.closeWindow();
-    });
-  }
+    }
   }
 }
 </script>
