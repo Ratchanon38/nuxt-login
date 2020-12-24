@@ -43,6 +43,27 @@ window.onload = function (e) {
       });
     }
 export default {  
+    mounted() {
+    liff
+      .init({
+        liffId: "1654191081-Jm5gog1b",
+      })
+      .then(() => {
+        if (liff.isLoggedIn()) {
+          liff.getProfile().then((profile) => {
+            this.$store.dispatch("setLine", profile);
+            this.isDone();
+          });
+        } else {
+          liff.login();
+        }
+      });
+  },
+  computed: {
+    getLine() {
+      return this.$store.getters.getLine;
+    },
+  },
   data(){
     return {
       StudentID: this.$store.getters.getRegister.StudentID
@@ -60,26 +81,8 @@ export default {
       }      
     },
     close(){
-      liff.getProfile().then(function (profile) {
-	  liff.sendMessages([
-		{
-		  type: 'text',
-      text: "Thank you, Bye!"},
-		{
-		  type: 'text',
-		  text: 'From:' + profile.displayName
-		}
-	  ]).then(function () {
-		liff.closeWindow();
-	  }).catch(function (error) {
-		window.alert('Error sending message: ' + error.message);
-	  });
-	}).catch(function (error) {
-		window.alert("Error getting profile: " + error.message);
-	});
-}
+      liff.closeWindow();
     }
   }
-
-
+}
 </script>
