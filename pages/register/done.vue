@@ -59,9 +59,12 @@ export default {
         }).catch(e => console.log(e))         
       }      
     },
-    close(){
-      liff.closeWindow();
-    }
+    closeApp(event) {
+    event.preventDefault();
+    liff.sendMessages([{
+      type: 'text',
+      text: "#register"
+    }]).then(() => {
   }
 }
 </script>
