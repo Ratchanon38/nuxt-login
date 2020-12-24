@@ -20,7 +20,7 @@
               </p>
             </div>
             <v-btn rounded color="primary" dark class="w-100 mt-10 my-btn" @click="Edit">Edit</v-btn>
-            <v-btn rounded color="primary" dark class="w-100 mt-10 my-btn" @click="closeApp">Close</v-btn>
+            <v-btn rounded color="primary" dark class="w-100 mt-10 my-btn" @click="this.closeApp">Close</v-btn>
                                
           </div>
         </v-col>
