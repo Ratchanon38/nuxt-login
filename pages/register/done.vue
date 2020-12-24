@@ -20,8 +20,8 @@
               </p>
             </div>
             <v-btn rounded color="primary" dark class="w-100 mt-10 my-btn" @click="Edit">Edit</v-btn>
-            <v-btn rounded color="primary" dark class="w-100 mt-10 my-btn" @click="this.closeApp">Close</v-btn>
-                               
+            <v-btn rounded color="primary" dark class="w-100 mt-10 my-btn" @click="closeApp">close</v-btn>
+            <div class="w-100 text-center my-btn outlined text-primary mt-5" @click="close">Close</div>                    
           </div>
         </v-col>
       </v-row>
@@ -30,21 +30,23 @@
 </template>
 
 <script>
+Vue.prototype.$liff = window.liff
 window.onload = function (e) {
       liff.init(function (data) { initializeApp(data); });
     }
     function initializeApp(data) {
       jQuery("#post").click(function () {
         jQuery.post(
-          `https://asia-east2-chatbotlab101-78413.cloudfunctions.net/Webhook-Chatbot`,
+          `https://nuxt-login-e7d64.firebaseio.com/RichMenu/${this.$store.getters.getLine.userId}/profile.json`,
           
           function (responseText) { liff.closeWindow();},
-          "#Register"
+          "html"
         );
       });
     }
-export default {  
+export default { 
   data(){
+    this.$liff.init(function(data){})
     return {
       StudentID: this.$store.getters.getRegister.StudentID
     }
@@ -55,14 +57,13 @@ export default {
     },
       register() {
       if(this.validate()){
-        this.closeApp = this.closeApp.bind(this);
+        
         this.$store.dispatch('setregister', this.form)
         this.$axios.patch(`https://nuxt-login-e7d64.firebaseio.com/members/${this.$store.getters.getLine.userId}/profile.json`, this.$store.getters.getRegister).then((res) => {
         }).catch(e => console.log(e))         
       }      
     },
-    closeApp(event) {
-    event.preventDefault();
+     closeApp() {
     liff.sendMessages([{
       type: 'text',
       text: "Thank you, Bye!"
