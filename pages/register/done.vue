@@ -59,19 +59,8 @@ export default {
         }).catch(e => console.log(e))         
       }      
     },
-    close(){
-     liff.sendMessages([
-  {
-    type: 'text',
-    text: 'Hello, World!'
-  }
-])
-  .then(() => {
-    console.log('message sent');
-  })
-  .catch((err) => {
-    console.log('error', err);
-  });
+   close(){
+      liff.closeWindow();
     }
   }
 }
