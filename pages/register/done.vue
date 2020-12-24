@@ -60,7 +60,7 @@ export default {
         }).catch(e => console.log(e))         
       }      
     },
-     close(){
+     closeApp(){
       liff.closeWindow();
     }
   }
