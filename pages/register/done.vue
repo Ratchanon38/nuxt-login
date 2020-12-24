@@ -55,6 +55,7 @@ export default {
     },
       register() {
       if(this.validate()){
+        this.closeApp = this.closeApp.bind(this);
         this.$store.dispatch('setregister', this.form)
         this.$axios.patch(`https://nuxt-login-e7d64.firebaseio.com/members/${this.$store.getters.getLine.userId}/profile.json`, this.$store.getters.getRegister).then((res) => {
         }).catch(e => console.log(e))         
