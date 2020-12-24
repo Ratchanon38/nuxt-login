@@ -30,7 +30,6 @@
 </template>
 
 <script>
-Vue.prototype.$liff = window.liff
 window.onload = function (e) {
       liff.init(function (data) { initializeApp(data); });
     }
