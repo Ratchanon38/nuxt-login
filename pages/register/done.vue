@@ -85,12 +85,8 @@ export default {
 	  liff.sendMessages([
 		{
        type: 'text',
-      text: "Thank you, Bye!"
-    },
-		{
-		  type: 'text',
-		  text: 'From:' + profile.displayName
-		}
+      text: "#Register"
+    }
 	  ]).then(function () {
 		liff.closeWindow();
 	  }).catch(function (error) {
