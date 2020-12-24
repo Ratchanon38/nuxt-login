@@ -35,7 +35,7 @@ window.onload = function (e) {
     function initializeApp(data) {
       jQuery("#post").click(function () {
         jQuery.post(
-          `https://nuxt-login-e7d64.firebaseio.com/RichMenu/${this.$store.getters.getLine.userId}/profile.json`,
+          `https://nuxt-login-62cbf.firebaseio.com/RichMenu/${this.$store.getters.getLine.userId}/profile.json`,
           
           function (responseText) { liff.closeWindow();},
           "html"
@@ -55,13 +55,31 @@ export default {
       register() {
       if(this.validate()){
         this.$store.dispatch('setregister', this.form)
-        this.$axios.patch(`https://nuxt-login-e7d64.firebaseio.com/members/${this.$store.getters.getLine.userId}/profile.json`, this.$store.getters.getRegister).then((res) => {
+        this.$axios.patch(`https://nuxt-login-62cbf.firebaseio.com//members/${this.$store.getters.getLine.userId}/profile.json`, this.$store.getters.getRegister).then((res) => {
         }).catch(e => console.log(e))         
       }      
     },
-   close(){
-      liff.closeWindow();
+    close(){
+      liff.getProfile().then(function (profile) {
+	  liff.sendMessages([
+		{
+		  type: 'text',
+      text: "Thank you, Bye!"},
+		{
+		  type: 'text',
+		  text: 'From:' + profile.displayName
+		}
+	  ]).then(function () {
+		liff.closeWindow();
+	  }).catch(function (error) {
+		window.alert('Error sending message: ' + error.message);
+	  });
+	}).catch(function (error) {
+		window.alert("Error getting profile: " + error.message);
+	});
+}
     }
   }
-}
+
+
 </script>
