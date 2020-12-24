@@ -1,3 +1,4 @@
+const liff = window.liff; 
 export const state = () => ({
     dialog: {
         isShow: false,
