@@ -132,7 +132,6 @@
   </div>
 </template>
 <script>
-const liff = window.liff; 
 const REGEX_THAINATIONALID = /^[1]([0-9]{12})*$/
 const REGEX_NUMBER = /^[0-9]*$/
 export default {
