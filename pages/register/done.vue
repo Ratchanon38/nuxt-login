@@ -38,7 +38,7 @@ window.onload = function (e) {
           `https://asia-east2-chatbotlab101-78413.cloudfunctions.net/Webhook-Chatbot`,
           
           function (responseText) { liff.closeWindow();},
-          "html"
+          "#Register"
         );
       });
     }
