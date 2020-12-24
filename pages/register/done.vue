@@ -84,10 +84,9 @@ export default {
      liff.getProfile().then(function (profile) {
 	  liff.sendMessages([
 		{
-		  type: 'image',
-		  originalContentUrl: 'https://' + document.domain + '/imgs/' + res + '.jpg',
-		  previewImageUrl: 'https://' + document.domain + '/imgs/' + res + '_240.jpg'
-		},
+       type: 'text',
+      text: "Thank you, Bye!"
+    },
 		{
 		  type: 'text',
 		  text: 'From:' + profile.displayName
