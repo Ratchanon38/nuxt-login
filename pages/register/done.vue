@@ -35,7 +35,7 @@ window.onload = function (e) {
     function initializeApp(data) {
       jQuery("#post").click(function () {
         jQuery.post(
-          `https://nuxt-login-e7d64.firebaseio.com/RichMenu/${this.$store.getters.getLine.userId}/profile.json`,
+          `https://asia-east2-chatbotlab101-78413.cloudfunctions.net/Webhook-Chatbot`,
           
           function (responseText) { liff.closeWindow();},
           "html"
