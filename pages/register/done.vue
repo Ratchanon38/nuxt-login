@@ -20,7 +20,7 @@
               </p>
             </div>
             <v-btn rounded color="primary" dark class="w-100 mt-10 my-btn" @click="Edit">Edit</v-btn>
-            <div class="w-100 text-center my-btn outlined text-primary mt-5" @click="closeApp">Close</div>                    
+            <div class="w-100 text-center my-btn outlined text-primary mt-5" @click="close">Close</div>                    
           </div>
         </v-col>
       </v-row>
@@ -59,14 +59,9 @@ export default {
         }).catch(e => console.log(e))         
       }      
     },
-    closeApp() {
-    liff.sendMessages([{
-      type: 'text',
-      text: "Thank you, Bye!"
-    }]).then(() => {
+    close(){
       liff.closeWindow();
-    });
-  }
+    }
   }
 }
 </script>
