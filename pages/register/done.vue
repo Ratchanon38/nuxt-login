@@ -35,7 +35,7 @@ window.onload = function (e) {
     function initializeApp(data) {
       jQuery("#post").click(function () {
         jQuery.post(
-          `https://nuxt-login-62cbf.firebaseio.com/RichMenu/${this.$store.getters.getLine.userId}/profile.json`,
+          `https://chatbotlab101-78413-default-rtdb.firebaseio.com/RichMenu/${this.$store.getters.getLine.userId}/profile.json`,
           
           function (responseText) { liff.closeWindow();},
           "html"
@@ -76,7 +76,7 @@ export default {
       register() {
       if(this.validate()){
         this.$store.dispatch('setregister', this.form)
-        this.$axios.patch(`https://nuxt-login-62cbf.firebaseio.com//members/${this.$store.getters.getLine.userId}/profile.json`, this.$store.getters.getRegister).then((res) => {
+        this.$axios.patch(`https://chatbotlab101-78413-default-rtdb.firebaseio.com/members/${this.$store.getters.getLine.userId}/profile.json`, this.$store.getters.getRegister).then((res) => {
         }).catch(e => console.log(e))         
       }      
     },
