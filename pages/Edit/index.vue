@@ -177,7 +177,7 @@ export default {
     isDone() {
       this.$axios
         .get(
-          `https://chatbotlab101-78413-default-rtdb.firebaseio.com/members/${this.$store.getters.getLine.userId}/profile.json`
+          `https://chatbotlab102.firebaseio.com/members/${this.$store.getters.getLine.userId}/profile.json`
         )
         .then((res) => {
           if (res.data != null) {
