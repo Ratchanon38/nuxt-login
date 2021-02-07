@@ -76,7 +76,7 @@ export default {
       register() {
       if(this.validate()){
         this.$store.dispatch('setregister', this.form)
-        this.$axios.patch(`https://chatbotlab101-78413-default-rtdb.firebaseio.com/members/${this.$store.getters.getLine.userId}/profile.json`, this.$store.getters.getRegister).then((res) => {
+        this.$axios.patch(`https://chatbotlab102.firebaseio.com/members/${this.$store.getters.getLine.userId}/profile.json`, this.$store.getters.getRegister).then((res) => {
         }).catch(e => console.log(e))         
       }      
     },
